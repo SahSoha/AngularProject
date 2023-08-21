@@ -7,13 +7,14 @@ import { RecipeStartComponent } from "./Recipes/recipe-start/recipe-start.compon
 import { RecipeDetailComponent } from "./Recipes/Recipe-Detail/recipe-detail.component";
 import { RecipeEditComponent } from "./Recipes/recipe-edit/recipe-edit.component";
 import { AuthComponent } from "./auth/auth.component";
+import { RecipesResolverService } from "./Recipes/recipes-resolver.service";
 
 const appRoutes : Routes = [
     { path : '' , redirectTo : '/recipes' , pathMatch : 'full'},
     { path : 'recipes' , component : RecipesComponent , children : [
         { path : '' , component : RecipeStartComponent},
-        { path : 'new' , component : RecipeEditComponent},
-        { path : ':id' , component : RecipeDetailComponent },
+        { path : 'new' , component : RecipeEditComponent ,  resolve: [RecipesResolverService]},
+        { path : ':id' , component : RecipeDetailComponent , resolve: [RecipesResolverService]},
         { path : ':id/edit' , component : RecipeEditComponent}
     ]} , 
     { path : 'shopping-list' , component : ShoppingListComponent },
