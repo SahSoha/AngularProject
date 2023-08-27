@@ -113,7 +113,8 @@ export class RecipeEditComponent implements OnInit {
     }
   }
 
-  //get controls() { // a getter!
-  //return (<FormArray>this.recipeForm.get('ingredients')).controls;
+  //get ingredientControls() { 
+  //return (this.recipeForm.get('ingredients') as FormArray).controls;
   //}
+  //Fe L .html : *ngFor = "let ingredientCtrl of ingredientControls; let i = index" 
 }
